@@ -62,7 +62,12 @@ p {
             };
             
             function clicksPerSecond(started, clicks) {
-                return clicks / ((new Date()) - started) * 1000;
+                var cps = clicks / ((new Date()) - started) * 1000;
+                if (cps == Infinity) {
+                    return 0;
+                } else {
+                    return cps;
+                }          
             }
             
             function count() {
